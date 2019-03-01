@@ -17,5 +17,11 @@ Rails.application.config.assets.precompile += %w( admins_backoffice.css
                                                   admins_backoffice.js
                                                   sb-admin-2.css
                                                   sb-admin-2.js
+                                                  custom.css
+                                                  custom.js
+                                                  users_backoffice.css
+                                                  users_backoffice.js
+                                                  jquery-2.2.3/dist/jquery.js
+                                                  img.jpg
                                                 )
 
