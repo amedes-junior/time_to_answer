@@ -10,11 +10,14 @@
 
     <title>TimeToAnswer</title>
 
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application' %>
     <%= stylesheet_link_tag    'admins_backoffice' %>
+
+
 
   </head>
 
@@ -103,6 +106,17 @@
 
     <%= javascript_include_tag 'application' %>
     <%= javascript_include_tag 'admins_backoffice' %>
+
+    <% if notice %>
+        <%= javascript_tag do %>
+            $.bootstrapGrowl('<%= notice %>', {
+                type: 'success',
+                align: 'right',
+                allow_dismiss: true,
+                stackup_spacing: 10
+                });
+        <% end %>
+    <% end %>
 
 
 </body>

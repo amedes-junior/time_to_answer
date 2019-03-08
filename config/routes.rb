@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     #get 'admins/index'
     #get 'admins/edit/:id', to: 'admins#edit'
     get 'welcome/index'
-    resources :admins, only: [:index, :edit]
+    resources :admins
   end
   devise_for :users
 
