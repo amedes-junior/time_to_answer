@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     #get 'admins/edit/:id', to: 'admins#edit'
     get 'welcome/index'
     resources :admins
+    resources :subjects
   end
   devise_for :users
 
