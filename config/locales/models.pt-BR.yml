@@ -21,5 +21,9 @@
       user:
         id: Código
         email: Email
+        name: Nome
+        nikname: Apelido
+        password: Senha
+        password_confirmation: Confirmação de Senha
         created_at: Criando em
         updated_at: Atualizado em
