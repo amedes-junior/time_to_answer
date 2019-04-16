@@ -60,6 +60,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'awesome_print'
+  gem 'rails_db', '2.0.4'
 end
 
 group :test do
