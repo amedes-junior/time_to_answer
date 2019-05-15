@@ -41,10 +41,16 @@
           </div>
 
           <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
+            <ul class="nav navbar-nav"></ul>
 
+              <%=form_with url:site_search_path, local: true, method: :get,  class: "navbar-form navbar-left" do |form| %>
+              <form class="navbar-form navbar-left">
+                <div class="form-group">
+                    <%= form.text_field :term, class:"form-control", placeholder:"Digite aqui..." %>
+                </div>
+                <button type="submit" class="btn btn-default">Pesquisar</button>
+              <% end %>
 
-            </ul>
             <ul class="nav navbar-nav navbar-right">
               <% unless user_signed_in?  %>
                 <li><%= link_to  "Entrar", new_user_session_path %></li>
@@ -77,8 +83,25 @@
 
       <!-- Main component for a primary marketing message or call to action -->
       <div class="jumbotron">
-        <%=yield%>
+        <h1>Site::Welcome#index</h1>
+        <p>Find me in app/views/site/welcome/index.html.erb</p>
+
+
+        <% if user_signed_in? %>
+          <p>Usuário ESTÁ Logado / <%= current_user.email %></p>
+        <% else %>
+          <p>Usuário NÃO ESTÁ Logado</p>
+        <% end %>
+
+
+        <% if admin_signed_in? %>
+          <p>Administrador ESTÁ Logado / <%= current_admin.email %></p>
+        <% else %>
+          <p>Administrador NÃO ESTÁ Logado</p>
+        <% end %>
       </div>
+
+      <%=yield%>
 
 
 
