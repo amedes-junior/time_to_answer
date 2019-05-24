@@ -10,25 +10,30 @@
 </div>
 
 <% @questions.each do |question|  %>
-<%= form_with url:site_answer_path, local: true do |form| %>
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h3 class="panel-title"><%=question.description %></h3>
+  <%= form_with url:site_answer_path, local: false do |form| %>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+           <span class="label label-info" style="margin-right: 10px">
+              <%= link_to question.subject.description, '#', style:"color:white" %>
+            </span>
+            <%=question.description %>
+        </h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+          <% question.answers.each do |answer| %>
+            <div class="radio">
+              <label>
+                  <%=radio_button_tag 'answer_id', answer.id %>
+                  <%=answer.description%>
+              </label>
+            </div>
+          <% end %>
+          <%= form.submit "Responder", class: "btn btn-sucess", id:"submit_#{question.id}" %>
+        </ul>
+      </div>
     </div>
-    <div class="panel-body">
-      <ul>
-        <% question.answers.each do |answer| %>
-          <div class="radio">
-            <label>
-                <%=radio_button_tag 'answer', answer.id %>
-                <%=answer.description%>
-            </label>
-          </div>
-        <% end %>
-        <%= form.submit "Responder", class: "btn btn-sucess"%>
-      </ul>
-    </div>
-  </div>
   <% end %>
 <% end %>
 

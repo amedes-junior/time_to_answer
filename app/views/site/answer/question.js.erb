@@ -1,0 +1,19 @@
+$('#submit_<%=@answer.question_id%>').removeClass('btn-danger').removeClass('btn-success').removeClass('btn-default');
+<% if @answer.correct %>
+  $('#submit_<%=@answer.question_id%>').removeClass('btn-default').addClass('btn-success');
+
+  $.bootstrapGrowl('Você acertou \o/', {
+    type: 'success',
+    align: 'right',
+    allow_dismiss: true,
+    stackup_spacing: 10
+    });
+<% else %>
+  $('#submit_<%=@answer.question_id%>').removeClass('btn-default').addClass('btn-danger');
+  $.bootstrapGrowl('Você errou :(', {
+    type: 'danger',
+    align: 'right',
+    allow_dismiss: true,
+    stackup_spacing: 10
+    });
+<% end %>
