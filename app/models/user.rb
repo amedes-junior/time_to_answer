@@ -7,10 +7,10 @@ class User < ApplicationRecord
 
   # Validations
   validates :first_name, presence: true, length: {minimum:3}, on: :update
-  validates :last_name, presence: :true
+  validates :last_name, presence: :true, length: {minimum:3}, on: :update
 
   #Virtual Attributte
   def full_name
-    [self.first_name, self.last_name].join(' ')
+    [self.first_name, self.last_name].join(' ') if self.first_name && self.last_name
   end
 end

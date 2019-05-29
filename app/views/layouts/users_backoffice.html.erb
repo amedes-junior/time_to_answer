@@ -35,8 +35,12 @@
               <%= image_tag 'img.jpg', alt:"...", class:"img-circle profile_img" %>
             </div>
             <div class="profile_info">
-              <span>Seja Bem-vindo,</span>
-              <h2><%=current_user.full_name %></h2>
+              <% unless  current_user.full_name %>
+              <span>Seja Bem-vindo</span>
+              <% else %>
+              <span>Seja Bem-vindo, </span>
+                <h2><%=current_user.full_name %></h2>
+              <% end %>
             </div>
           </div>
           <!-- /menu profile quick info -->
