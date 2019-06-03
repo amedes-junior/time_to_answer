@@ -27,3 +27,11 @@
         password_confirmation: Confirmação de Senha
         created_at: Criando em
         updated_at: Atualizado em
+      user_profile:
+        id: Código
+        address: Endereço
+        gender: Sexo
+        nikname: Apelido
+        birthdate: Data de Nascimento
+        created_at: Criando em
+        updated_at: Atualizado em

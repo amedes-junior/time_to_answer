@@ -7,6 +7,9 @@ Rails.application.routes.draw do
     resources :subjects
     resources :questions
   end
+
+  get 'backoffice', to: 'admins_backoffice/welcome#index'
+
   devise_for :users
 
   namespace :site do
