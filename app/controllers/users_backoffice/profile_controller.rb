@@ -9,7 +9,9 @@ class UsersBackoffice::ProfileController < UsersBackofficeController
   def update
     if @user.update(params_user)
       bypass_sign_in(@user)
-      redirect_to users_backoffice_profile_path, notice:"Usuário atualizado com sucesso."
+      unless params_user[:user_profile_attributes][:avatar]
+        redirect_to users_backoffice_profile_path, notice:"Usuário atualizado com sucesso."
+      end
     else
       render :edit
     end
@@ -29,7 +31,7 @@ class UsersBackoffice::ProfileController < UsersBackofficeController
 
   def params_user
     params_admin = params.require(:user).permit(:email, :password, :password_confirmation, :first_name, :last_name,
-      user_profile_attributes: [:id, :address, :birthdate, :gender])
+      user_profile_attributes: [:id, :address, :birthdate, :gender, :avatar ])
   end
 
 end
