@@ -91,7 +91,7 @@
             <div class="col-md-6 col-sm-6 col-xs-12">
 
               <%= profile_form.text_field :birthdate,
-                    value: (l(@user.user_profile.birthdate) unless @user.user_profile.birthdate),
+                    value: (l(@user.user_profile.birthdate) if @user.user_profile.birthdate),
                     class: "form-control col-md-7 col-xs-12 datepicker" %>
             </div>
           </div>
